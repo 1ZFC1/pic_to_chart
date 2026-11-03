@@ -104,7 +104,7 @@ python pic_to_chart_gui.py         # 或双击 图片转谱面_GUI.bat
 ### 3.2 命令行
 
 ```powershell
-cd 工具\pic_to_chart
+cd tools\pic_to_chart
 
 # 默认：逐行扫描，宽度自动取一屏（1.0 个 xPosition 单位）
 python pic_to_chart.py 图片.png -o chart.json --preview chart.png --compare compare.png
