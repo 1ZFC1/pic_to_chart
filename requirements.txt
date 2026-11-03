@@ -1,0 +1,12 @@
+# 运行「图片转谱面」所需的第三方库（pip install -r requirements.txt）
+PyQt5>=5.15
+Pillow>=10.0
+numpy>=1.24
+scipy>=1.10
+scikit-image>=0.21
+
+# 想自己打包成 exe 时再加：
+# pyinstaller>=6.0
+
+# 注意：谱面读写库 rizChartFunction 不在 PyPI 上，
+# 需要单独克隆（见 README / tools/get-library.ps1）。
