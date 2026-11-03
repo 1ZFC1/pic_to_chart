@@ -1,15 +1,12 @@
 # pic_to_chart
 
-把**一张图片**转成 **Rizline 谱面**里的引导线（guideline）——图片会被“画”进谱面，
-在编辑器里播放时自下而上揭幕。纯 Python，工作方式就是“把像素换算成 xPosition 与拍数”。
+把**一张图片**转成 **Rizline 谱面**里的引导线（guideline）。
 
 > 本仓库**只含源码与文档**：不含第三方库、不含美术/音乐素材、不含二进制或生成物。
 
 ![轮廓描边效果](docs/demo-outline.png)
 
 ![逐行扫描效果](docs/demo-scan.png)
-
-（上图都是工具在**合成图形**上跑出来的，不涉及任何第三方美术。）
 
 ## 功能
 
@@ -18,14 +15,12 @@
 | `scan` 逐行扫描 | 照片、插画、渐变 | 每行一条水平引导线，颜色取像素颜色 |
 | `column` 逐列扫描 | 同上，但偏好竖线 | 每列一条竖线，列距按编辑器水平细分 1/16 |
 | `outline` 轮廓描边 | 线稿、logo、剪影、透明底贴图 | marching squares 提轮廓，可选平滑与加粗 |
-| `thin` 骨架中心线 | “一笔一画”的线稿 | 骨架化后一条笔画只出一条线 |
+| `thin` 骨架中心线 | \ | \ |
 
 此外：
 
 - **GUI（PyQt5）**：实时预览、拖拽载入、后台转换 + 进度条 + 取消、追加到已有谱面；
-- **标定谱面**：一键生成用于核对比例/线宽/流速的测试谱面；
-- **坐标是实测标定的**：1 个 x 单位 = 5.625 世界单位，一屏 = 1.0 单位宽 × 6.9 世界高，
-  真实流速 `S1 = 7·(S0−1)/9 + 6`；细节见 [docs/manual.md](docs/manual.md)。
+- **标定谱面**：一键生成用于核对比例/线宽/流速的测试谱面；\
 
 ## 安装
 
@@ -40,8 +35,7 @@ python -m pip install -r requirements.txt
 ### 依赖：rizChartFunction_Library（不在本仓库）
 
 谱面的读写（JSON 结构、`floorPosition`、画布/关键点 API）依赖另一个项目
-**[rizChartFunction_Library](https://github.com/xp00000002/rizChartFunction_Library)**，
-它有自己的作者与许可，因此**不随本仓库分发**。
+**[rizChartFunction_Library](https://github.com/xp00000002/rizChartFunction_Library)**。
 
 两种获取方式，任选一种：
 
@@ -83,9 +77,6 @@ python pic_to_chart.py 图片.png --chart 已有谱面.json -o 合并.json
 
 ## 已知限制
 
-- 只在 **Windows** 上开发验证过（代码本身是跨平台的，但未在 macOS/Linux 实测）；
-- 可见窗口/线宽等参数是基于当前编辑器版本实测标定的：编辑器大版本变化后需要重新量
-  （方法见 manual 的“标定”一节）；
 - 输出只有引导线，不含判定环/Note 等游戏元素。
 
 ## 许可
